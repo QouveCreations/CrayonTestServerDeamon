@@ -1,4 +1,4 @@
-package space.qouve.networking;
+package space.qouve.models;
 
 public enum ServerType {
     PRODUCTIVE("^productive-[a-z0-9-]{1,32}$"),

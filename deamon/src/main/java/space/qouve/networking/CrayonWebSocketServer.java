@@ -10,6 +10,7 @@ import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.handshake.ServerHandshakeBuilder;
 import org.java_websocket.server.WebSocketServer;
 import space.qouve.logger.DeamonLogger;
+import space.qouve.models.ServerType;
 import space.qouve.networking.client.Client;
 import space.qouve.networking.client.ClientInfo;
 import space.qouve.protocol.ClientProtocol;
@@ -114,7 +115,6 @@ public class CrayonWebSocketServer extends WebSocketServer {
         DeamonLogger.get().info("Server started on port " + getPort());
     }
 
-    /** Für den TestServerManager: Client per ID finden. */
     public Client getClient(String serverId) {
         return clientsById.get(serverId);
     }

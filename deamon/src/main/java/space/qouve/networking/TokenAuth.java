@@ -1,5 +1,7 @@
 package space.qouve.networking;
 
+import space.qouve.models.ServerType;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
