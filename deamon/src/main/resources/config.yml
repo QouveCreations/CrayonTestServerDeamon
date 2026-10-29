@@ -1,0 +1,6 @@
+port: 6674
+maxServers: 3
+gitBasePath: ""
+
+prodSecret: "KUWGD&*A(WD&A^Gjhda"
+stagingSecret: "JYDWG&^A*(WDYIAGYD&W*A"
