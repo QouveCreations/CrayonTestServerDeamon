@@ -1,4 +1,4 @@
-package space.qouve.networking;
+package space.qouve.networking.handler;
 
 import space.qouve.networking.client.Client;
 import space.qouve.protocol.ClientProtocol;

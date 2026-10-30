@@ -16,10 +16,12 @@ public class TokenAuth {
 
     private final String stagingSecret;
     private final String productiveSecret;
+    private final String webeditorSecret;
 
-    public TokenAuth(String stagingSecret, String productiveSecret) {
+    public TokenAuth(String stagingSecret, String productiveSecret, String webeditorSecret) {
         this.stagingSecret = stagingSecret;
         this.productiveSecret = productiveSecret;
+        this.webeditorSecret = webeditorSecret;
     }
 
     public String createTestInstanceToken(String serverId) {
@@ -41,6 +43,7 @@ public class TokenAuth {
             case TESTINSTANCE -> testInstanceTokens.get(serverId);
             case STAGING      -> stagingSecret;
             case PRODUCTIVE   -> productiveSecret;
+            case WEBEDITOR -> webeditorSecret;
         };
 
         return expected != null && !expected.isBlank()

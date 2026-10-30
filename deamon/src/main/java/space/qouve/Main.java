@@ -5,11 +5,9 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import space.qouve.config.DeamonConfig;
 import space.qouve.logger.DeamonLogger;
 import space.qouve.networking.CrayonWebSocketServer;
-import space.qouve.networking.Dispatcher;
+import space.qouve.networking.handler.Dispatcher;
 import space.qouve.networking.TokenAuth;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -26,7 +24,7 @@ public class Main {
 
         log.info("Starting NetWoking Server...");
         Dispatcher dispatcher = new Dispatcher();
-        TokenAuth auth = new TokenAuth(config.prodSecret(), config.stagingSecret());
+        TokenAuth auth = new TokenAuth(config.prodSecret(), config.stagingSecret(), config.webeditorSecret());
         CrayonWebSocketServer socketServer = new CrayonWebSocketServer(config.port(), dispatcher, auth);
         socketServer.start();
         log.info("NetWoking Server Started");

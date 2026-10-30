@@ -13,6 +13,7 @@ import space.qouve.logger.DeamonLogger;
 import space.qouve.models.ServerType;
 import space.qouve.networking.client.Client;
 import space.qouve.networking.client.ClientInfo;
+import space.qouve.networking.handler.Dispatcher;
 import space.qouve.protocol.ClientProtocol;
 import space.qouve.protocol.ServerProtocol;
 

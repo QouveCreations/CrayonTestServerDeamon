@@ -3,7 +3,8 @@ package space.qouve.models;
 public enum ServerType {
     PRODUCTIVE("^productive-[a-z0-9-]{1,32}$"),
     STAGING("^staging-[a-z0-9-]{1,32}$"),
-    TESTINSTANCE("^testinstance-[a-z0-9-]{1,48}$");
+    TESTINSTANCE("^testinstance-[a-z0-9-]{1,48}$"),
+    WEBEDITOR("^webeditor-[a-z0-9-]{1,32}$");
 
     private final java.util.regex.Pattern idPattern;
 
