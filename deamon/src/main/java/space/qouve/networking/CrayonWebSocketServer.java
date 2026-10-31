@@ -100,7 +100,7 @@ public class CrayonWebSocketServer extends WebSocketServer {
         try {
             msg = mapper.readValue(raw, ClientProtocol.class);
         } catch (JsonProcessingException e) {
-            client.send(new ServerProtocol.Error(null, "BAD_REQUEST", "invalid message"));
+            client.send(new ServerProtocol.ErrorResponse(null, "BAD_REQUEST", "invalid message"));
             return;
         }
         dispatcher.dispatch(client, msg);

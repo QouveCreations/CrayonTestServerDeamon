@@ -18,7 +18,7 @@ public class Dispatcher {
     public void dispatch(Client client, ClientProtocol msg) {
         Handler<ClientProtocol> handler = (Handler<ClientProtocol>) handlers.get(msg.getClass());
         if (handler == null) {
-            client.send(new ServerProtocol.Error(msg.id(), "UNKNOWN_TYPE", "no handler"));
+            client.send(new ServerProtocol.ErrorResponse(msg.id(), "UNKNOWN_TYPE", "no handler"));
             return;
         }
         handler.handle(client, msg);

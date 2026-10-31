@@ -7,6 +7,8 @@ import space.qouve.logger.DeamonLogger;
 import space.qouve.networking.CrayonWebSocketServer;
 import space.qouve.networking.handler.Dispatcher;
 import space.qouve.networking.TokenAuth;
+import space.qouve.networking.handler.handlers.CreateTestServerFromCommit;
+import space.qouve.protocol.ClientProtocol;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +26,7 @@ public class Main {
 
         log.info("Starting NetWoking Server...");
         Dispatcher dispatcher = new Dispatcher();
+        dispatcher.register(ClientProtocol.CreateTestServerFromCommit.class, new CreateTestServerFromCommit());
         TokenAuth auth = new TokenAuth(config.prodSecret(), config.stagingSecret(), config.webeditorSecret());
         CrayonWebSocketServer socketServer = new CrayonWebSocketServer(config.port(), dispatcher, auth);
         socketServer.start();

@@ -23,6 +23,8 @@ import java.util.List;
         @JsonSubTypes.Type(value = ServerProtocol.ConsoleHistory.class, name = "consolehistory"),
         @JsonSubTypes.Type(value = ServerProtocol.MemoryUsage.class, name = "memoryusage"),
         @JsonSubTypes.Type(value = ServerProtocol.CpuUsage.class, name = "cpuusage"),
+        @JsonSubTypes.Type(value = ServerProtocol.MaxMemoryUsage.class, name = "maxmemoryusage"),
+        @JsonSubTypes.Type(value = ServerProtocol.MaxCpuUsage.class, name = "maxcpuusage"),
         @JsonSubTypes.Type(value = ServerProtocol.TPS.class, name = "tps"),
         @JsonSubTypes.Type(value = ServerProtocol.Servers.class, name = "servers"),
         @JsonSubTypes.Type(value = ServerProtocol.DaemonInformation.class, name = "daemoninformation"),
@@ -50,6 +52,10 @@ public sealed interface ServerProtocol {
     record MemoryUsage(String id, String userID, int usage) implements ServerProtocol {}
     // %
     record CpuUsage(String id, String userID, int usage) implements ServerProtocol {}
+    // MB
+    record MaxMemoryUsage(String id, String userID, int usage) implements ServerProtocol {}
+    // %
+    record MaxCpuUsage(String id, String userID, int usage) implements ServerProtocol {}
     // 0.0 to 20.0
     record TPS(String id, String userID, double tps) implements ServerProtocol {}
 

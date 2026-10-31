@@ -7,7 +7,9 @@ import space.qouve.models.ServerType;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = ClientProtocol.CreateTestServer.class, name = "createtestserver"),
+        @JsonSubTypes.Type(value = ClientProtocol.CreateTestServerFromCommit.class, name = "createtestserverfromcommit"),
         @JsonSubTypes.Type(value = ClientProtocol.UpdateTestServerFiles.class, name = "updatetestserverfiles"),
+        @JsonSubTypes.Type(value = ClientProtocol.UpdateTestServerFilesFromCommit.class, name = "updatetestserverfilesfromcommit"),
         @JsonSubTypes.Type(value = ClientProtocol.StopServer.class, name = "stopserver"),
         @JsonSubTypes.Type(value = ClientProtocol.RestartServer.class, name = "restartserver"),
         @JsonSubTypes.Type(value = ClientProtocol.UpdateFiles.class, name = "updatefiles"),
@@ -23,7 +25,9 @@ public sealed interface ClientProtocol {
     String id();
 
     record CreateTestServer(String id, String userID, String repositoryID, String slug) implements ClientProtocol {}
+    record CreateTestServerFromCommit(String id, String userID, String repositoryID, String commit, String slug) implements ClientProtocol {}
     record UpdateTestServerFiles(String id, String userID) implements ClientProtocol {}
+    record UpdateTestServerFilesFromCommit(String id, String userID, String commit) implements ClientProtocol {}
     record StopServer(String id, String userID) implements ClientProtocol {}
     record RestartServer(String id, String userID) implements ClientProtocol {}
     record GetConsole(String id, String userID) implements ClientProtocol {}
