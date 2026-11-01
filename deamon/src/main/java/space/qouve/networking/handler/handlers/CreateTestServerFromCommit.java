@@ -13,8 +13,8 @@ public class CreateTestServerFromCommit implements Handler<ClientProtocol.Create
     public void handle(Client client, ClientProtocol.CreateTestServerFromCommit msg) {
         System.out.println(msg);
 
-        client.send(new ServerProtocol.MemoryUsage(client.info().serverId(), msg.userID(), 1000));
+        client.send(new ServerProtocol.MemoryUsage(client.info().serverId(), msg.userID(), 1000, 2000));
         client.send(new ServerProtocol.TPS(client.info().serverId(), msg.userID(), 20));
-        client.send(new ServerProtocol.CpuUsage(client.info().serverId(), msg.userID(), 10));
+        client.send(new ServerProtocol.CpuUsage(client.info().serverId(), msg.userID(), 10, 100));
     }
 }

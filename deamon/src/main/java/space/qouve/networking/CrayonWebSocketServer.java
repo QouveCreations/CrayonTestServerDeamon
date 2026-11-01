@@ -119,4 +119,8 @@ public class CrayonWebSocketServer extends WebSocketServer {
     public Client getClient(String serverId) {
         return clientsById.get(serverId);
     }
+
+    public java.util.Collection<Client> getClients() {
+        return clientsById.values();
+    }
 }

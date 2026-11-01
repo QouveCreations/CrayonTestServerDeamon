@@ -20,15 +20,18 @@ public class Main {
     private static final Logger log = DeamonLogger.get();
     private static final Path CONFIG_PATH = Path.of("config.yml");
     private static DeamonConfig config;
+    private static Dispatcher dispatcher;
+    private static TokenAuth auth;
+    private static CrayonWebSocketServer socketServer;
 
     static void main() throws IOException {
         config = loadConfig();
 
         log.info("Starting NetWoking Server...");
-        Dispatcher dispatcher = new Dispatcher();
+        dispatcher = new Dispatcher();
         dispatcher.register(ClientProtocol.CreateTestServerFromCommit.class, new CreateTestServerFromCommit());
-        TokenAuth auth = new TokenAuth(config.prodSecret(), config.stagingSecret(), config.webeditorSecret());
-        CrayonWebSocketServer socketServer = new CrayonWebSocketServer(config.port(), dispatcher, auth);
+        auth = new TokenAuth(config.prodSecret(), config.stagingSecret(), config.webeditorSecret());
+        socketServer = new CrayonWebSocketServer(config.port(), dispatcher, auth);
         socketServer.start();
         log.info("NetWoking Server Started");
     }
@@ -46,5 +49,17 @@ public class Main {
 
     public static DeamonConfig getConfig() {
         return config;
+    }
+
+    public static Dispatcher getDispatcher() {
+        return dispatcher;
+    }
+
+    public static TokenAuth getAuth() {
+        return auth;
+    }
+
+    public static CrayonWebSocketServer getSocketServer() {
+        return socketServer;
     }
 }

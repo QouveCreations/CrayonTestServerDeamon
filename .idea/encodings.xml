@@ -5,6 +5,10 @@
     <file url="file://$PROJECT_DIR$/core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/deamon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/deamon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/debugdeamon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/debugdeamon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/devui/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/devui/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/plugin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
