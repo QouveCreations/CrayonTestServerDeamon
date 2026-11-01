@@ -27,6 +27,7 @@ import java.util.List;
         @JsonSubTypes.Type(value = ServerProtocol.TPS.class, name = "tps"),
         @JsonSubTypes.Type(value = ServerProtocol.Servers.class, name = "servers"),
         @JsonSubTypes.Type(value = ServerProtocol.DaemonInformation.class, name = "daemoninformation"),
+        @JsonSubTypes.Type(value = ServerProtocol.UpdateFiles.class, name = "updatefiles"),
 })
 public sealed interface ServerProtocol {
     String id();
@@ -59,4 +60,7 @@ public sealed interface ServerProtocol {
     record Servers(String id, String userID, List<Server> servers) implements ServerProtocol {}
     record DaemonInformation(String id, DaemonInfo daemonInformation) implements ServerProtocol {}
     record DaemonInfo(String version, long uptimeSeconds, int runningServers, int maxServers) {}
+
+    // Sends the repo as zip to the clients (MC-Server clients).
+    record UpdateFiles(String id, String slug, byte[] file) {}
 }
